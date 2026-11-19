@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HepatoSense AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🌟 HepatoSense AI</h1>
+    <p class="tagline">Intelligent Liver Health Prediction System</p>
+
+    <form action="/predict" method="POST">
+
+        <input type="number" step="any" name="Age" placeholder="Age (years)" required>
+        <input type="number" step="any" name="Gender" placeholder="Gender (1=Male, 0=Female)" required>
+        <input type="number" step="any" name="Total_Bilirubin" placeholder="Total Bilirubin (0.1 - 10 mg/dL)" required>
+        <input type="number" step="any" name="Direct_Bilirubin" placeholder="Direct Bilirubin (0.1 - 5 mg/dL)" required>
+        <input type="number" step="any" name="Alkaline_Phosphotase" placeholder="Alkaline Phosphotase (100 - 300 IU/L)" required>
+        <input type="number" step="any" name="Alamine_Aminotransferase" placeholder="ALT (10 - 100 IU/L)" required>
+        <input type="number" step="any" name="Aspartate_Aminotransferase" placeholder="AST (10 - 100 IU/L)" required>
+        <input type="number" step="any" name="Total_Proteins" placeholder="Total Proteins (6 - 8 g/dL)" required>
+        <input type="number" step="any" name="Albumin" placeholder="Albumin (3 - 5 g/dL)" required>
+        <input type="number" step="any" name="Albumin_and_Globulin_Ratio" placeholder="A/G Ratio (0.8 - 2.0)" required>
+
+        <button type="submit">🔍 Predict</button>
+    </form>
+
+    <div class="result">
+        {{ prediction_text }}
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
